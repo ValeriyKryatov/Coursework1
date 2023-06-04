@@ -1,22 +1,22 @@
 package pro.sky.java.course1.coursework1;
 public class Employee {
-    private String surNameEmployee;
-    private String nameEmployee;
-    private String patronymicEmployee;
+    private final String surNameEmployee;
+    private final String nameEmployee;
+    private final String patronymicEmployee;
     private int departmentEmployee;
     private int salaryEmployee;
-    private int id;
-    private static int idCounter = 1;
+    private final int id;
+    private static int idCounter = 0;
     public Employee(String surNameEmployee, String nameEmployee, String patronymicEmployee, int departmentEmployee, int salaryEmployee) {
+        if (departmentEmployee < 1 || departmentEmployee > 5) {
+            throw new IllegalStateException("Отдел должен быть от 1 до 5");
+        }
+        this.id = ++idCounter;
         this.surNameEmployee = surNameEmployee;
         this.nameEmployee = nameEmployee;
         this.patronymicEmployee = patronymicEmployee;
         this.departmentEmployee = departmentEmployee;
         this.salaryEmployee = salaryEmployee;
-        if (salaryEmployee >= 0) {
-            this.salaryEmployee = salaryEmployee;
-        }
-        id = idCounter++;
     }
     public String getSurNameEmployee() {
         return this.surNameEmployee;
@@ -34,7 +34,7 @@ public class Employee {
         return this.salaryEmployee;
     }
     public int getId() {
-        return this.id++;
+        return this.id;
     }
     public void setDepartmentEmployee(int departmentEmployee) {
         this.departmentEmployee = departmentEmployee;
