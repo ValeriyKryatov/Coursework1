@@ -31,7 +31,7 @@ public class Main {
         }
     }
     private static void printMaxSalaryEmployee() {
-        int maxSalary = employees[9].getSalaryEmployee();
+        int maxSalary = employees[employees.length-1].getSalaryEmployee();
         for (Employee employee : employees) {
             if (employee != null) {
                 maxSalary = Math.max(maxSalary, employee.getSalaryEmployee());
